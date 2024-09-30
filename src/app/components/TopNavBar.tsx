@@ -12,22 +12,30 @@ export const TopNavBar = () => {
   return (
     <header
       aria-label="Site Header"
+      style={{ backgroundColor: '#161921' }}
       className={cx(
         "flex h-[var(--top-nav-bar-height)] items-center border-b-2 border-gray-100 px-3 lg:px-12",
         isHomePage && "bg-dot"
       )}
     >
       <div className="flex h-10 w-full items-center justify-between">
-        <Link href="/">
-          <span className="sr-only">OpenResume</span>
-          <Image
-            src={logoSrc}
-            alt="OpenResume Logo"
-            className="h-8 w-full"
-            priority
-          />
-        </Link>
-        <nav
+      <Link href="/">
+  <span className="sr-only">Konect U</span>
+  <div className="flex items-center">
+    <img
+      src="/apple-touch-icon.png"
+      alt="Konect U Logo"
+      width={60} // Adjust width as needed
+      height={60} // Adjust height as needed
+      className="h-14 w-auto" // Additional classes as needed
+    />
+    <span className="ml-2 text-2xl font-bold bg-gradient-to-r from-orange-400 via-yellow-500 to-yellow-300 bg-clip-text text-transparent">
+      Konect U
+    </span>
+  </div>
+</Link>
+
+        {/* <nav
           aria-label="Site Nav Bar"
           className="flex items-center gap-2 text-sm font-medium"
         >
@@ -52,7 +60,7 @@ export const TopNavBar = () => {
               title="GitHub"
             />
           </div>
-        </nav>
+        </nav> */}
       </div>
     </header>
   );

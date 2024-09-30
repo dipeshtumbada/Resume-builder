@@ -97,7 +97,7 @@ export const ResumeDropzone = ({
   return (
     <div
       className={cx(
-        "flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 ",
+        "flex justify-center rounded-md border-2 border-dashed border-gray-400 px-6 ",
         isHoveredOnDropzone && "border-sky-400",
         playgroundView ? "pb-6 pt-4" : "py-12",
         className
@@ -128,14 +128,14 @@ export const ResumeDropzone = ({
           <>
             <p
               className={cx(
-                "pt-3 text-gray-700",
+                "pt-3 text-gray-500",
                 !playgroundView && "text-lg font-semibold"
               )}
             >
               Browse a pdf file or drop it here
             </p>
-            <p className="flex text-sm text-gray-500">
-              <LockClosedIcon className="mr-1 mt-1 h-3 w-3 text-gray-400" />
+            <p className="flex text-sm text-gray-300">
+              <LockClosedIcon className="mr-1 mt-1 h-3 w-3 text-gray-300" />
               File data is used locally and never leaves your browser
             </p>
           </>
@@ -155,43 +155,43 @@ export const ResumeDropzone = ({
           </div>
         )}
         <div className="pt-4">
-          {!hasFile ? (
-            <>
-              <label
-                className={cx(
-                  "within-outline-theme-purple cursor-pointer rounded-full px-6 pb-2.5 pt-2 font-semibold shadow-sm",
-                  playgroundView ? "border" : "bg-primary"
-                )}
-              >
-                Browse file
-                <input
-                  type="file"
-                  className="sr-only"
-                  accept=".pdf"
-                  onChange={onInputChange}
-                />
-              </label>
-              {hasNonPdfFile && (
-                <p className="mt-6 text-red-400">Only pdf file is supported</p>
-              )}
-            </>
-          ) : (
-            <>
-              {!playgroundView && (
-                <button
-                  type="button"
-                  className="btn-primary"
-                  onClick={onImportClick}
-                >
-                  Import and Continue <span aria-hidden="true">→</span>
-                </button>
-              )}
-              <p className={cx(" text-gray-500", !playgroundView && "mt-6")}>
-                Note: {!playgroundView ? "Import" : "Parser"} works best on
-                single column resume
-              </p>
-            </>
-          )}
+        {!hasFile ? (
+  <>
+    <label
+      className={cx(
+        "cursor-pointer rounded-full px-6 pb-2.5 pt-2 font-semibold shadow-sm",
+        playgroundView ? "border" : "bg-gradient-to-r from-orange-400 via-yellow-500 to-yellow-300 text-white hover:from-orange-500 hover:via-yellow-600 hover:to-yellow-400 transition duration-300"
+      )}
+    >
+      Browse file
+      <input
+        type="file"
+        className="sr-only"
+        accept=".pdf"
+        onChange={onInputChange}
+      />
+    </label>
+    {hasNonPdfFile && (
+      <p className="mt-6 text-red-400">Only pdf file is supported</p>
+    )}
+  </>
+) : (
+  <>
+    {!playgroundView && (
+      <button
+        type="button"
+        className="btn-primary"
+        onClick={onImportClick}
+      >
+        Import and Continue <span aria-hidden="true">→</span>
+      </button>
+    )}
+    <p className={cx("text-gray-500", !playgroundView && "mt-6")}>
+      Note: {!playgroundView ? "Import" : "Parser"} works best on
+      single column resume
+    </p>
+  </>
+)}
         </div>
       </div>
     </div>
